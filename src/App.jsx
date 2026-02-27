@@ -60,7 +60,7 @@ function App() {
     <div className="app">
       {/* Navigation */}
       <nav className="navbar">
-        <div className="logo">Studio<span>IA</span></div>
+        <div className="logo">LensIA<span>Studio</span></div>
         <div className="nav-links">
           <a href="#home">Home</a>
           <a href="#services">Services</a>
@@ -157,7 +157,7 @@ function App() {
       </section>
 
       <footer className="footer">
-        <p>&copy; 2026 StudioIA Photography. All rights reserved.</p>
+        <p>&copy; 2026 LensIA Studio. All rights reserved.</p>
       </footer>
     </div>
   )
