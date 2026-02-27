@@ -23,10 +23,10 @@ function App() {
   ]
 
   const extraCharges = [
-    { item: 'Extra Pax (above 7)', price: 'RM15 / pax' },
-    { item: 'Extra 10 Minutes', price: 'RM25' },
-    { item: 'Express Edit (24h)', price: 'RM30' },
-    { item: 'All Softcopy Add-On', price: 'RM40' }
+    { icon: '👥', item: 'Extra Pax (above 7)', price: 'RM15 / pax' },
+    { icon: '⏳', item: 'Extra 10 Minutes', price: 'RM25' },
+    { icon: '⚡', item: 'Express Edit (24h)', price: 'RM30' },
+    { icon: '💾', item: 'All Softcopy Add-On', price: 'RM40' }
   ]
 
   const handleChange = (e) => {
@@ -108,6 +108,7 @@ function App() {
             <div className="extra-grid">
               {extraCharges.map((extra, index) => (
                 <div key={index} className="extra-item">
+                  <span className="extra-icon">{extra.icon}</span>
                   <span className="extra-name">{extra.item}</span>
                   <span className="extra-dot"></span>
                   <span className="extra-price">{extra.price}</span>
@@ -143,15 +144,15 @@ function App() {
                 <form onSubmit={handleSubmit} className="booking-form">
                   <div className="form-group">
                     <label>Full Name</label>
-                    <input name="name" type="text" value={formData.name} onChange={handleChange} required placeholder="John Doe" />
+                    <input name="name" type="text" value={formData.name} onChange={handleChange} required placeholder="Abu" />
                   </div>
                   <div className="form-group">
                     <label>Email Address</label>
-                    <input name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="john@example.com" />
+                    <input name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="abu@example.com" />
                   </div>
                   <div className="form-group">
                     <label>Phone Number</label>
-                    <input name="phone" type="tel" value={formData.phone} onChange={handleChange} required placeholder="+1 (555) 000-0000" />
+                    <input name="phone" type="tel" value={formData.phone} onChange={handleChange} required placeholder="012-3456789" />
                   </div>
                   <div className="form-row">
                     <div className="form-group">
