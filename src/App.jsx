@@ -9,6 +9,7 @@ function App() {
     service: 'Portrait',
     date: '',
     time: '',
+    phone: '',
     message: ''
   })
   const [loading, setLoading] = useState(false)
@@ -39,6 +40,7 @@ function App() {
           email: formData.email,
           service: formData.service,
           booking_date: formData.date,
+          phone: formData.phone,
           message: formData.message
         }
       ])
@@ -58,7 +60,7 @@ function App() {
     <div className="app">
       {/* Navigation */}
       <nav className="navbar">
-        <div className="logo">STUDIO<span>X</span></div>
+        <div className="logo">Studio<span>IA</span></div>
         <div className="nav-links">
           <a href="#home">Home</a>
           <a href="#services">Services</a>
@@ -100,9 +102,9 @@ function App() {
               <h2>Ready to <span>Pose?</span></h2>
               <p>Fill out the form and our team will get back to you within 24 hours to confirm your session.</p>
               <div className="contact-details">
-                <p>📍 123 Artsy Lane, Creativille</p>
-                <p>📞 (555) 012-3456</p>
-                <p>✉️ hello@studiox.com</p>
+                <p>📍 No 1G, Horizon Square, Jalan HVO 1, Bandar Sunsuria, 43900 Sepang, Selangor</p>
+                <p>📞 016-7270587</p>
+                <p>✉️ hadirbru2025@gmail.com</p>
               </div>
             </div>
 
@@ -122,6 +124,10 @@ function App() {
                   <div className="form-group">
                     <label>Email Address</label>
                     <input name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="john@example.com" />
+                  </div>
+                  <div className="form-group">
+                    <label>Phone Number</label>
+                    <input name="phone" type="tel" value={formData.phone} onChange={handleChange} required placeholder="+1 (555) 000-0000" />
                   </div>
                   <div className="form-row">
                     <div className="form-group">
@@ -151,7 +157,7 @@ function App() {
       </section>
 
       <footer className="footer">
-        <p>&copy; 2026 StudioX Photography. All rights reserved.</p>
+        <p>&copy; 2026 StudioIA Photography. All rights reserved.</p>
       </footer>
     </div>
   )
