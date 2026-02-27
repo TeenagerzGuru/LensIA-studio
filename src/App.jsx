@@ -17,10 +17,16 @@ function App() {
   const [error, setError] = useState(null)
 
   const services = [
-    { title: 'Portrait', price: '$150', icon: '👤', description: 'Professional individual shots for your portfolio or socials.' },
-    { title: 'Wedding', price: '$1200', icon: '💍', description: 'Capturing your special day with high-end storytelling.' },
-    { title: 'Event', price: '$400', icon: '🎉', description: 'Corporate events, parties, and celebrations.' },
-    { title: 'Commercial', price: '$800', icon: '🏢', description: 'Product photography and brand visuals.' }
+    { title: '15 Minutes', price: 'RM89', icon: '⏱️', description: 'Perfect for quick, high-quality family or individual portraits.' },
+    { title: '20 Minutes', price: 'RM109', icon: '�', description: 'Our most popular package for a balanced session.' },
+    { title: '30 Minutes', price: 'RM139', icon: '�', description: 'Extended session for more poses and variety.' }
+  ]
+
+  const extraCharges = [
+    { item: 'Extra Pax (above 7)', price: 'RM15 / pax' },
+    { item: 'Extra 10 Minutes', price: 'RM25' },
+    { item: 'Express Edit (24h)', price: 'RM30' },
+    { item: 'All Softcopy Add-On', price: 'RM40' }
   ]
 
   const handleChange = (e) => {
@@ -63,7 +69,7 @@ function App() {
         <div className="logo">LensIA<span>Studio</span></div>
         <div className="nav-links">
           <a href="#home">Home</a>
-          <a href="#services">Services</a>
+          <a href="#services">Packages</a>
           <a href="#book">Book Now</a>
         </div>
       </nav>
@@ -80,16 +86,34 @@ function App() {
       {/* Services Section */}
       <section id="services" className="services">
         <div className="container">
-          <h2 className="section-title">Our Services</h2>
+          <div className="section-header">
+            <h2 className="section-title">STUDIO RAYA 2026</h2>
+            <p className="section-subtitle">‣ Price includes up to 7 pax</p>
+          </div>
+
+          <h3 className="category-title">Duration Packages</h3>
           <div className="services-grid">
             {services.map((service, index) => (
               <div key={index} className="service-card">
                 <div className="service-icon">{service.icon}</div>
                 <h3>{service.title}</h3>
-                <p className="price">Starting at {service.price}</p>
+                <p className="price">{service.price}</p>
                 <p>{service.description}</p>
               </div>
             ))}
+          </div>
+
+          <div className="extra-charges">
+            <h3 className="category-title">+ Extra Charges</h3>
+            <div className="extra-grid">
+              {extraCharges.map((extra, index) => (
+                <div key={index} className="extra-item">
+                  <span className="extra-name">{extra.item}</span>
+                  <span className="extra-dot"></span>
+                  <span className="extra-price">{extra.price}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
