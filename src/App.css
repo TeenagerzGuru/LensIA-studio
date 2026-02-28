@@ -47,7 +47,7 @@
 /* Hero */
 .hero {
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/WPP.jpg.jpeg');
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/WPP.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -356,6 +356,35 @@ textarea:focus {
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 15px 5%;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links a {
+    margin-left: 15px;
+    font-size: 0.8rem;
+  }
+
+  .nav-links a[href="#book"] {
+    background: var(--primary);
+    color: var(--bg-dark);
+    padding: 6px 12px;
+    border-radius: 4px;
+    opacity: 1;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
   .booking-wrapper {
     grid-template-columns: 1fr;
     gap: 40px;
