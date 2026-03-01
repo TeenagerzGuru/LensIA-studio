@@ -435,6 +435,45 @@ textarea:focus {
   text-align: center;
 }
 
+/* Time Slots */
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.time-slot-btn {
+  padding: 10px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.time-slot-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  background: rgba(193, 162, 123, 0.1);
+}
+
+.time-slot-btn.selected {
+  background: var(--primary);
+  color: var(--bg-dark);
+  border-color: var(--primary);
+  font-weight: 600;
+}
+
+.time-slot-btn.booked {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: #0a0a0a;
+  text-decoration: line-through;
+}
+
 /* Footer */
 .footer {
   padding: 40px;
