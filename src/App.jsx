@@ -1,6 +1,37 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { supabase } from './supabaseClient'
 import './App.css'
+
+const generateTimeSlots = () => {
+  const slots = []
+  let hour = 8
+  let minutes = 0
+
+  while (hour < 22) {
+    const startHour = hour % 12 || 12
+    const startMin = minutes === 0 ? '00' : '30'
+    const startAmPm = hour < 12 ? 'am' : 'pm'
+
+    let nextHour = hour
+    let nextMin = minutes + 30
+    if (nextMin === 60) {
+      nextHour++
+      nextMin = 0
+    }
+
+    const endHour = nextHour % 12 || 12
+    const endMin = nextMin === 0 ? '00' : '30'
+    const endAmPm = nextHour < 12 ? 'am' : 'pm'
+
+    slots.push(`${startHour}:${startMin}${startAmPm} - ${endHour}:${endMin}${endAmPm}`)
+
+    hour = nextHour
+    minutes = nextMin
+  }
+  return slots
+}
+
+const TIME_SLOTS = generateTimeSlots()
 
 function App() {
   const [formData, setFormData] = useState({
@@ -16,6 +47,28 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState(null)
+  const [bookedSlots, setBookedSlots] = useState([])
+
+  useEffect(() => {
+    const fetchAvailability = async () => {
+      if (!formData.date || !formData.studio) return
+
+      try {
+        const { data, error } = await supabase
+          .from('bookings')
+          .select('booking_time')
+          .eq('booking_date', formData.date)
+          .eq('studio', formData.studio)
+
+        if (error) throw error
+        setBookedSlots(data.map(b => b.booking_time))
+      } catch (err) {
+        console.error('Error fetching availability:', err)
+      }
+    }
+
+    fetchAvailability()
+  }, [formData.date, formData.studio])
 
   const services = [
     { title: '15 Minutes', price: 'RM89', icon: '⏱️', description: 'Perfect for quick, high-quality family or individual portraits.' },
@@ -48,6 +101,7 @@ function App() {
           service: formData.service,
           studio: formData.studio,
           booking_date: formData.date,
+          booking_time: formData.time,
           phone: formData.phone,
           message: formData.message
         }
@@ -216,6 +270,30 @@ function App() {
                       <input name="date" type="date" value={formData.date} onChange={handleChange} required />
                     </div>
                   </div>
+
+                  {formData.date && (
+                    <div className="form-group">
+                      <label>Select Time Slot</label>
+                      <div className="time-slots-grid">
+                        {TIME_SLOTS.map(slot => {
+                          const isBooked = bookedSlots.includes(slot)
+                          const isSelected = formData.time === slot
+                          return (
+                            <button
+                              key={slot}
+                              type="button"
+                              className={`time-slot-btn ${isSelected ? 'selected' : ''} ${isBooked ? 'booked' : ''}`}
+                              disabled={isBooked}
+                              onClick={() => handleChange({ target: { name: 'time', value: slot } })}
+                            >
+                              {slot}
+                            </button>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  )}
+
                   <div className="form-group">
                     <label>Message (Optional)</label>
                     <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your needs..." rows="4"></textarea>
