@@ -7,6 +7,7 @@ function App() {
     name: '',
     email: '',
     service: 'Portrait',
+    studio: 'Studio A',
     date: '',
     time: '',
     phone: '',
@@ -45,6 +46,7 @@ function App() {
           name: formData.name,
           email: formData.email,
           service: formData.service,
+          studio: formData.studio,
           booking_date: formData.date,
           phone: formData.phone,
           message: formData.message
@@ -69,6 +71,7 @@ function App() {
         <div className="logo">LensIA<span>Studio</span></div>
         <div className="nav-links">
           <a href="#home">Home</a>
+          <a href="#studios">Studios</a>
           <a href="#services">Packages</a>
           <a href="#book">Book Now</a>
         </div>
@@ -82,6 +85,44 @@ function App() {
           <a href="#book" className="btn-primary">Book a Session</a>
         </div>
       </header>
+
+      {/* Studio Preview Section */}
+      <section id="studios" className="studio-preview">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">OUR STUDIOS</h2>
+            <p className="section-subtitle">Exquisite spaces for your creative vision</p>
+          </div>
+          <div className="studio-grid">
+            <div className="studio-card">
+              <div className="studio-image">
+                <img src="/src/assets/Photoshoot/DSC00779.jpg.jpeg" alt="Studio A" />
+                <div className="studio-overlay">
+                  <h3>Studio A</h3>
+                  <p>Warm tones, natural aesthetic</p>
+                </div>
+              </div>
+              <div className="studio-info">
+                <h4>Studio A - The Classic</h4>
+                <p>Perfect for traditional portraits and family sessions with a cozy, timeless feel.</p>
+              </div>
+            </div>
+            <div className="studio-card">
+              <div className="studio-image">
+                <img src="/src/assets/Photoshoot/DSC00801.jpg.jpeg" alt="Studio B" />
+                <div className="studio-overlay">
+                  <h3>Studio B</h3>
+                  <p>Modern, minimalist, and sleek</p>
+                </div>
+              </div>
+              <div className="studio-info">
+                <h4>Studio B - The Modern</h4>
+                <p>Ideal for editorial shots, professional headshots, and contemporary styles.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Services Section */}
       <section id="services" className="services">
@@ -161,6 +202,15 @@ function App() {
                         {services.map(s => <option key={s.title}>{s.title}</option>)}
                       </select>
                     </div>
+                    <div className="form-group">
+                      <label>Studio Selection</label>
+                      <select name="studio" value={formData.studio} onChange={handleChange}>
+                        <option value="Studio A">Studio A</option>
+                        <option value="Studio B">Studio B</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="form-row">
                     <div className="form-group">
                       <label>Date</label>
                       <input name="date" type="date" value={formData.date} onChange={handleChange} required />
