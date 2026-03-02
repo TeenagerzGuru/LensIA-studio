@@ -468,10 +468,12 @@ textarea:focus {
 }
 
 .time-slot-btn.booked {
-  opacity: 0.3;
+  background: #333;
+  color: #666;
+  border-color: #444;
+  opacity: 0.7;
   cursor: not-allowed;
-  background: #0a0a0a;
-  text-decoration: line-through;
+  pointer-events: none;
 }
 
 /* Footer */
