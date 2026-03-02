@@ -49,28 +49,47 @@ function App() {
   const [error, setError] = useState(null)
   const [bookedSlots, setBookedSlots] = useState([])
 
-  useEffect(() => {
-    const fetchAvailability = async () => {
-      if (!formData.date || !formData.studio) return
+  const fetchAvailability = async () => {
+    if (!formData.date || !formData.studio) return
 
-      // Reset time selection when date or studio changes
-      setFormData(prev => ({ ...prev, time: '' }))
+    try {
+      const { data, error } = await supabase
+        .from('bookings')
+        .select('booking_time')
+        .eq('booking_date', formData.date)
+        .eq('studio', formData.studio)
 
-      try {
-        const { data, error } = await supabase
-          .from('bookings')
-          .select('booking_time')
-          .eq('booking_date', formData.date)
-          .eq('studio', formData.studio)
-
-        if (error) throw error
-        setBookedSlots(data.map(b => b.booking_time))
-      } catch (err) {
-        console.error('Error fetching availability:', err)
-      }
+      if (error) throw error
+      setBookedSlots(data.map(b => b.booking_time))
+    } catch (err) {
+      console.error('Error fetching availability:', err)
     }
+  }
 
+  useEffect(() => {
+    // Reset time selection when date or studio changes
+    setFormData(prev => ({ ...prev, time: '' }))
     fetchAvailability()
+
+    // Subscribe to realtime updates for this date and studio
+    const channel = supabase
+      .channel('booking-updates')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'bookings'
+        },
+        () => {
+          fetchAvailability()
+        }
+      )
+      .subscribe()
+
+    return () => {
+      supabase.removeChannel(channel)
+    }
   }, [formData.date, formData.studio])
 
   const services = [
@@ -97,6 +116,23 @@ function App() {
     setError(null)
 
     try {
+      // 1. Double check availability before insert
+      const { data: existing, error: checkError } = await supabase
+        .from('bookings')
+        .select('id')
+        .eq('booking_date', formData.date)
+        .eq('booking_time', formData.time)
+        .eq('studio', formData.studio)
+        .maybeSingle()
+
+      if (checkError) throw checkError
+      if (existing) {
+        setError('This slot was just booked by someone else. Please select another time.')
+        fetchAvailability()
+        return
+      }
+
+      // 2. Perform the insert
       const { error } = await supabase.from('bookings').insert([
         {
           name: formData.name,
