@@ -4,10 +4,10 @@ import './App.css'
 
 const generateTimeSlots = () => {
   const slots = []
-  let hour = 8
+  let hour = 9
   let minutes = 0
 
-  while (hour < 22) {
+  while (hour < 20) {
     const startHour = hour % 12 || 12
     const startMin = minutes === 0 ? '00' : '30'
     const startAmPm = hour < 12 ? 'am' : 'pm'
@@ -52,6 +52,9 @@ function App() {
   useEffect(() => {
     const fetchAvailability = async () => {
       if (!formData.date || !formData.studio) return
+
+      // Reset time selection when date or studio changes
+      setFormData(prev => ({ ...prev, time: '' }))
 
       try {
         const { data, error } = await supabase
