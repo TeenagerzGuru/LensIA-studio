@@ -358,7 +358,7 @@ function App() {
                   </div>
                   <div className="form-group">
                     <label>Phone Number (WhatsApp)</label>
-                    <input name="phone" type="tel" value={formData.phone} onChange={handleChange} required placeholder="0123456789" />
+                    <input name="phone" type="tel" value={formData.phone} onChange={handleChange} required placeholder="012-3456789" />
                   </div>
                   <div className="form-row">
                     <div className="form-group">
@@ -421,7 +421,19 @@ function App() {
       </section>
 
       <footer className="footer">
-        <p>&copy; 2026 LensIA Studio. All rights reserved.</p>
+        <div className="footer-content">
+          <div className="social-links">
+            <a href="https://tiktok.com/@lensiastudio" target="_blank" rel="noopener noreferrer" className="social-icon tiktok">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-1.13-.32-2.34-.14-3.33.44-.71.37-1.33.99-1.33 2.02.01.59.28 1.14.63 1.6 1.02 1.33 3.01 1.54 4.18.59.39-.32.65-.77.77-1.27.05-1.03.03-2.05.03-3.08V1h-.04c.03-.32.03-.65.03-.98z" />
+              </svg>
+            </a>
+          </div>
+          <p>&copy; 2026 LensIA Studio. All rights reserved.</p>
+          <div className="developer-credit">
+            <a href="#" target="_blank" rel="noopener noreferrer">Hafiz Ismail</a>
+          </div>
+        </div>
       </footer>
     </div>
   )
