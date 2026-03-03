@@ -106,17 +106,17 @@ function App() {
   ]
 
   const studioAReviews = [
-    { name: "Sarah L.", rating: 5, comment: "Studio A's Heritage vibe is absolutely stunning. The wood textures made our family photos look so timeless.", date: "Feb 2026" },
-    { name: "Michael Cheng", rating: 5, comment: "Loved the vintage props! The lighting in Studio A is perfect for that classic morning look.", date: "Jan 2026" },
-    { name: "Aishah Hassan", rating: 4, comment: "Beautiful space for our Raya photoshoot. Very cozy and the staff was super helpful.", date: "Feb 2026" },
-    { name: "David Tan", rating: 5, comment: "Highly recommend Studio A for lifestyle shots. It feels more like a home than a studio.", date: "Dec 2025" }
+    { img: "/src/assets/Photoshoot/DSC00799.jpg.jpeg" },
+    { img: "/src/assets/Photoshoot/DSC00803.jpg.jpeg" },
+    { img: "/src/assets/Photoshoot/DSC00807.jpg.jpeg" },
+    { img: "/src/assets/Photoshoot/DSC00809.jpg.jpeg" }
   ]
 
   const studioBReviews = [
-    { name: "Jessica K.", rating: 5, comment: "Studio B is so nostalgic! The rattan chairs and timber walls are exactly what we wanted for our reunion.", date: "Feb 2026" },
-    { name: "Rizal Bakri", rating: 5, comment: "The minimalist approach in Studio B is genius. Great for professional yet warm headshots.", date: "Feb 2026" },
-    { name: "Linda Ng", rating: 5, comment: "Best studio in Sepang! Studio B's 'Nostalgia' set is a masterpiece. My parents loved it.", date: "Jan 2026" },
-    { name: "Kevin Wong", rating: 4, comment: "Clean, professional, and very atmospheric. Studio B provides a really unique backdrop.", date: "Jan 2026" }
+    { img: "/src/assets/Photoshoot/DSC00811.jpg.jpeg" },
+    { img: "/src/assets/Photoshoot/DSC00813.jpg.jpeg" },
+    { img: "/src/assets/Photoshoot/DSC00815.jpg.jpeg" },
+    { img: "/src/assets/Photoshoot/WPP.jpg.jpeg" }
   ]
 
   const handleChange = (e) => {
@@ -375,15 +375,8 @@ function App() {
               <h3 className="category-title">Studio A - The Classic</h3>
               <div className="reviews-grid">
                 {studioAReviews.map((review, index) => (
-                  <div key={index} className="review-card">
-                    <div className="review-rating">
-                      {[...Array(review.rating)].map((_, i) => <span key={i}>⭐</span>)}
-                    </div>
-                    <p className="review-comment">"{review.comment}"</p>
-                    <div className="review-footer">
-                      <span className="review-name">{review.name}</span>
-                      <span className="review-date">{review.date}</span>
-                    </div>
+                  <div key={index} className="review-card image-only">
+                    <img src={review.img} alt={`Studio A Review ${index + 1}`} className="review-img" />
                   </div>
                 ))}
               </div>
@@ -393,15 +386,8 @@ function App() {
               <h3 className="category-title">Studio B - The Modern</h3>
               <div className="reviews-grid">
                 {studioBReviews.map((review, index) => (
-                  <div key={index} className="review-card">
-                    <div className="review-rating">
-                      {[...Array(review.rating)].map((_, i) => <span key={i}>⭐</span>)}
-                    </div>
-                    <p className="review-comment">"{review.comment}"</p>
-                    <div className="review-footer">
-                      <span className="review-name">{review.name}</span>
-                      <span className="review-date">{review.date}</span>
-                    </div>
+                  <div key={index} className="review-card image-only">
+                    <img src={review.img} alt={`Studio B Review ${index + 1}`} className="review-img" />
                   </div>
                 ))}
               </div>
