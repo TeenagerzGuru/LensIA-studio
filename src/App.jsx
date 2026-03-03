@@ -7,7 +7,7 @@ const generateTimeSlots = () => {
   let hour = 9
   let minutes = 0
 
-  while (hour < 20) {
+  while (hour < 22) {
     const startHour = hour % 12 || 12
     const startMin = minutes === 0 ? '00' : '30'
     const startAmPm = hour < 12 ? 'am' : 'pm'
