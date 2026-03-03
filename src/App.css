@@ -531,7 +531,7 @@ textarea:focus {
 }
 
 .developer-credit a {
-  color: inherit;
+  color: #333;
   text-decoration: none;
   text-transform: uppercase;
 }
