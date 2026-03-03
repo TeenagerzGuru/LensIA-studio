@@ -163,6 +163,7 @@ function App() {
       if (error) throw error
 
       setSubmitted(true)
+
     } catch (err) {
       setError('Something went wrong. Please try again.')
       console.error(err)
@@ -180,6 +181,7 @@ function App() {
           <a href="#home">Home</a>
           <a href="#studios">Studios</a>
           <a href="#services">Packages</a>
+          <a href="#reviews">Reviews</a>
           <a href="#book">Book Now</a>
         </div>
       </nav>
@@ -262,6 +264,40 @@ function App() {
                   <span className="extra-price">{extra.price}</span>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section id="reviews" className="reviews">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">TESTIMONIALS</h2>
+            <p className="section-subtitle">What our clients express on their face says it all</p>
+          </div>
+
+          <div className="reviews-container">
+            <div className="studio-reviews-block">
+              <h3 className="category-title">Studio A - The Classic</h3>
+              <div className="reviews-grid">
+                {studioAReviews.map((review, index) => (
+                  <div key={index} className="review-card image-only landscape">
+                    <img src={review.img} alt={`Studio A Review ${index + 1}`} className="review-img" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="studio-reviews-block">
+              <h3 className="category-title">Studio B - The Nostalgic</h3>
+              <div className="reviews-grid">
+                {studioBReviews.map((review, index) => (
+                  <div key={index} className="review-card image-only">
+                    <img src={review.img} alt={`Studio B Review ${index + 1}`} className="review-img" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -357,40 +393,6 @@ function App() {
                   {error && <p className="error-text">{error}</p>}
                 </form>
               )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Reviews Section */}
-      <section id="reviews" className="reviews">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">CUSTOMER REVIEWS</h2>
-            <p className="section-subtitle">What our clients say about their experience</p>
-          </div>
-
-          <div className="reviews-container">
-            <div className="studio-reviews-block">
-              <h3 className="category-title">Studio A - The Classic</h3>
-              <div className="reviews-grid">
-                {studioAReviews.map((review, index) => (
-                  <div key={index} className="review-card image-only landscape">
-                    <img src={review.img} alt={`Studio A Review ${index + 1}`} className="review-img" />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="studio-reviews-block">
-              <h3 className="category-title">Studio B - The Nostalgic</h3>
-              <div className="reviews-grid">
-                {studioBReviews.map((review, index) => (
-                  <div key={index} className="review-card image-only">
-                    <img src={review.img} alt={`Studio B Review ${index + 1}`} className="review-img" />
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
