@@ -189,28 +189,28 @@ function App() {
           <div className="studio-grid">
             <div className="studio-card">
               <div className="studio-image">
-                <img src="/src/assets/Photoshoot/DSC00779.jpg.jpeg" alt="Studio A" />
+                <img src="StudioA.jpeg" alt="Studio A" />
                 <div className="studio-overlay">
                   <h3>Studio A</h3>
-                  <p>Warm tones, natural aesthetic</p>
+                  <p>Warm, narrative, and soulful</p>
                 </div>
               </div>
               <div className="studio-info">
                 <h4>Studio A - The Classic</h4>
-                <p>Perfect for traditional portraits and family sessions with a cozy, timeless feel.</p>
+                <p>The Heritage Perfect for vintage-inspired portraits and lifestyle sessions, featuring rich wood textures and authentic retro accents for a soulful, timeless feel.</p>
               </div>
             </div>
             <div className="studio-card">
               <div className="studio-image">
-                <img src="/src/assets/Photoshoot/DSC00801.jpg.jpeg" alt="Studio B" />
+                <img src="StudioB.jpeg" alt="Studio B" />
                 <div className="studio-overlay">
                   <h3>Studio B</h3>
-                  <p>Modern, minimalist, and sleek</p>
+                  <p>Sentimental, warm, and cozy</p>
                 </div>
               </div>
               <div className="studio-info">
-                <h4>Studio B - The Modern</h4>
-                <p>Ideal for editorial shots, professional headshots, and contemporary styles.</p>
+                <h4>Studio B - The Nostalgic</h4>
+                <p>The Nostalgia Step back into a simpler time with our curated ruang tamu set. Featuring classic rattan armchairs, vintage vinyl displays, and warm timber walls, it’s the perfect backdrop for capturing heartfelt family reunions and heritage-themed portraits.</p>
               </div>
             </div>
           </div>
