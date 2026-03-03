@@ -375,7 +375,7 @@ function App() {
               <h3 className="category-title">Studio A - The Classic</h3>
               <div className="reviews-grid">
                 {studioAReviews.map((review, index) => (
-                  <div key={index} className="review-card image-only">
+                  <div key={index} className="review-card image-only landscape">
                     <img src={review.img} alt={`Studio A Review ${index + 1}`} className="review-img" />
                   </div>
                 ))}
