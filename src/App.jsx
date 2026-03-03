@@ -383,7 +383,7 @@ function App() {
             </div>
 
             <div className="studio-reviews-block">
-              <h3 className="category-title">Studio B - The Modern</h3>
+              <h3 className="category-title">Studio B - The Nostalgic</h3>
               <div className="reviews-grid">
                 {studioBReviews.map((review, index) => (
                   <div key={index} className="review-card image-only">
