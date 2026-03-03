@@ -106,17 +106,17 @@ function App() {
   ]
 
   const studioAReviews = [
-    { img: "/src/assets/Photoshoot/SAR1.jpeg" },
-    { img: "/src/assets/Photoshoot/SAR2.jpeg" },
-    { img: "/src/assets/Photoshoot/SAR3.jpeg" },
-    { img: "/src/assets/Photoshoot/SAR4.jpeg" }
+    { img: "/SAR1.jpeg" },
+    { img: "/SAR2.jpeg" },
+    { img: "/SAR3.jpeg" },
+    { img: "/SAR4.jpeg" }
   ]
 
   const studioBReviews = [
-    { img: "/src/assets/Photoshoot/SBR1.jpeg" },
-    { img: "/src/assets/Photoshoot/SBR2.jpeg" },
-    { img: "/src/assets/Photoshoot/SBR3.jpeg" },
-    { img: "/src/assets/Photoshoot/SBR4.jpeg" }
+    { img: "/SBR1.jpeg" },
+    { img: "/SBR2.jpeg" },
+    { img: "/SBR3.jpeg" },
+    { img: "/SBR4.jpeg" }
   ]
 
   const handleChange = (e) => {
