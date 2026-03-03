@@ -29,14 +29,20 @@
   color: var(--primary);
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
 .nav-links a {
   color: var(--text-main);
   text-decoration: none;
-  margin-left: 30px;
+  margin-left: 20px;
   font-size: 0.9rem;
   font-weight: 500;
   transition: var(--transition);
   opacity: 0.8;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -495,8 +501,8 @@ textarea:focus {
   }
 
   .nav-links a {
-    margin-left: 15px;
-    font-size: 0.8rem;
+    margin-left: 10px;
+    font-size: 0.75rem;
   }
 
   .nav-links a[href="#book"] {
@@ -505,6 +511,7 @@ textarea:focus {
     padding: 6px 12px;
     border-radius: 4px;
     opacity: 1;
+    font-weight: 600;
   }
 
   .hero-content h1 {
