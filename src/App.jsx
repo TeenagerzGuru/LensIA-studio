@@ -130,6 +130,28 @@ function App() {
     setError(null)
 
     try {
+      // 0. Custom Validation
+      const nameRegex = /^[A-Za-z\s]{3,}$/
+      if (!nameRegex.test(formData.name)) {
+        setError('Name must be at least 3 characters and contain only letters.')
+        setLoading(false)
+        return
+      }
+
+      const phoneRegex = /^\d{8,}$/
+      if (!phoneRegex.test(formData.phone)) {
+        setError('Phone number must be at least 8 digits and contain only numbers.')
+        setLoading(false)
+        return
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.com$/
+      if (!emailRegex.test(formData.email)) {
+        setError('Please enter a valid email address ending with .com')
+        setLoading(false)
+        return
+      }
+
       // 1. Double check availability before insert
       const { data: existing, error: checkError } = await supabase
         .from('bookings')
@@ -182,7 +204,7 @@ function App() {
           <a href="#studios">Studios</a>
           <a href="#services">Packages</a>
           <a href="#reviews">Reviews</a>
-          <a href="#book">Book Now</a>
+          <a href="#book" className="btn-nav-book">Book Now</a>
         </div>
       </nav>
 
@@ -335,7 +357,7 @@ function App() {
                     <input name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="abu@example.com" />
                   </div>
                   <div className="form-group">
-                    <label>Phone Number</label>
+                    <label>Phone Number (WhatsApp)</label>
                     <input name="phone" type="tel" value={formData.phone} onChange={handleChange} required placeholder="012-3456789" />
                   </div>
                   <div className="form-row">
