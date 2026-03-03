@@ -8,8 +8,9 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 20px 5%;
+  padding: 15px 5%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
@@ -32,6 +33,7 @@
 .nav-links {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -484,11 +486,54 @@ textarea:focus {
 
 /* Footer */
 .footer {
-  padding: 40px;
+  padding: 60px 40px;
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   color: var(--text-muted);
   font-size: 0.9rem;
+  background: var(--bg-dark);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-links {
+  margin-bottom: 10px;
+}
+
+.social-icon {
+  color: var(--text-muted);
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon:hover {
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.developer-credit {
+  margin-top: 20px;
+  opacity: 0.3;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+
+.developer-credit:hover {
+  opacity: 0.8;
+}
+
+.developer-credit a {
+  color: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
@@ -500,15 +545,24 @@ textarea:focus {
     font-size: 1.2rem;
   }
 
-  .nav-links a {
-    margin-left: 10px;
-    font-size: 0.75rem;
+  .nav-links {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: space-between;
   }
 
-  .nav-links a[href="#book"] {
+  .nav-links a {
+    margin-left: 0;
+    font-size: 0.8rem;
+  }
+
+  .nav-links a.btn-nav-book {
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: 15px;
     background: var(--primary);
     color: var(--bg-dark);
-    padding: 6px 12px;
+    padding: 10px;
     border-radius: 4px;
     opacity: 1;
     font-weight: 600;
