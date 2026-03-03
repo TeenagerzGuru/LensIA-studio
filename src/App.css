@@ -503,6 +503,8 @@ textarea:focus {
 
 .social-links {
   margin-bottom: 10px;
+  display: flex;
+  gap: 20px;
 }
 
 .social-icon {
