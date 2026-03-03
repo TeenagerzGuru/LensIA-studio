@@ -105,6 +105,20 @@ function App() {
     { icon: '💾', item: 'All Softcopy Add-On', price: 'RM40' }
   ]
 
+  const studioAReviews = [
+    { name: "Sarah L.", rating: 5, comment: "Studio A's Heritage vibe is absolutely stunning. The wood textures made our family photos look so timeless.", date: "Feb 2026" },
+    { name: "Michael Cheng", rating: 5, comment: "Loved the vintage props! The lighting in Studio A is perfect for that classic morning look.", date: "Jan 2026" },
+    { name: "Aishah Hassan", rating: 4, comment: "Beautiful space for our Raya photoshoot. Very cozy and the staff was super helpful.", date: "Feb 2026" },
+    { name: "David Tan", rating: 5, comment: "Highly recommend Studio A for lifestyle shots. It feels more like a home than a studio.", date: "Dec 2025" }
+  ]
+
+  const studioBReviews = [
+    { name: "Jessica K.", rating: 5, comment: "Studio B is so nostalgic! The rattan chairs and timber walls are exactly what we wanted for our reunion.", date: "Feb 2026" },
+    { name: "Rizal Bakri", rating: 5, comment: "The minimalist approach in Studio B is genius. Great for professional yet warm headshots.", date: "Feb 2026" },
+    { name: "Linda Ng", rating: 5, comment: "Best studio in Sepang! Studio B's 'Nostalgia' set is a masterpiece. My parents loved it.", date: "Jan 2026" },
+    { name: "Kevin Wong", rating: 4, comment: "Clean, professional, and very atmospheric. Studio B provides a really unique backdrop.", date: "Jan 2026" }
+  ]
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
@@ -343,6 +357,54 @@ function App() {
                   {error && <p className="error-text">{error}</p>}
                 </form>
               )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section id="reviews" className="reviews">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">CUSTOMER REVIEWS</h2>
+            <p className="section-subtitle">What our clients say about their experience</p>
+          </div>
+
+          <div className="reviews-container">
+            <div className="studio-reviews-block">
+              <h3 className="category-title">Studio A - The Classic</h3>
+              <div className="reviews-grid">
+                {studioAReviews.map((review, index) => (
+                  <div key={index} className="review-card">
+                    <div className="review-rating">
+                      {[...Array(review.rating)].map((_, i) => <span key={i}>⭐</span>)}
+                    </div>
+                    <p className="review-comment">"{review.comment}"</p>
+                    <div className="review-footer">
+                      <span className="review-name">{review.name}</span>
+                      <span className="review-date">{review.date}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="studio-reviews-block">
+              <h3 className="category-title">Studio B - The Modern</h3>
+              <div className="reviews-grid">
+                {studioBReviews.map((review, index) => (
+                  <div key={index} className="review-card">
+                    <div className="review-rating">
+                      {[...Array(review.rating)].map((_, i) => <span key={i}>⭐</span>)}
+                    </div>
+                    <p className="review-comment">"{review.comment}"</p>
+                    <div className="review-footer">
+                      <span className="review-name">{review.name}</span>
+                      <span className="review-date">{review.date}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
