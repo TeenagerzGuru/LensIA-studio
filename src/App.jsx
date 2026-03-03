@@ -189,7 +189,7 @@ function App() {
           <div className="studio-grid">
             <div className="studio-card">
               <div className="studio-image">
-                <img src="StudioA.jpeg" alt="Studio A" />
+                <img src="/src/assets/Photoshoot/StudioA.jpeg" alt="Studio A" />
                 <div className="studio-overlay">
                   <h3>Studio A</h3>
                   <p>Warm, narrative, and soulful</p>
@@ -202,7 +202,7 @@ function App() {
             </div>
             <div className="studio-card">
               <div className="studio-image">
-                <img src="StudioB.jpeg" alt="Studio B" />
+                <img src="/src/assets/Photoshoot/StudioB.jpeg" alt="Studio B" />
                 <div className="studio-overlay">
                   <h3>Studio B</h3>
                   <p>Sentimental, warm, and cozy</p>
