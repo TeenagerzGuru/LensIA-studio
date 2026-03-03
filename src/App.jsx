@@ -94,8 +94,8 @@ function App() {
 
   const services = [
     { title: '15 Minutes', price: 'RM89', icon: '⏱️', description: 'Perfect for quick, high-quality family or individual portraits.' },
-    { title: '20 Minutes', price: 'RM109', icon: '�', description: 'Our most popular package for a balanced session.' },
-    { title: '30 Minutes', price: 'RM139', icon: '�', description: 'Extended session for more poses and variety.' }
+    { title: '20 Minutes', price: 'RM109', icon: '⏳️', description: 'Our most popular package for a balanced session.' },
+    { title: '30 Minutes', price: 'RM139', icon: '🕰', description: 'Extended session for more poses and variety.' }
   ]
 
   const extraCharges = [
