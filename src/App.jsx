@@ -358,7 +358,7 @@ function App() {
                   </div>
                   <div className="form-group">
                     <label>Phone Number (WhatsApp)</label>
-                    <input name="phone" type="tel" value={formData.phone} onChange={handleChange} required placeholder="012-3456789" />
+                    <input name="phone" type="tel" value={formData.phone} onChange={handleChange} required placeholder="0123456789" />
                   </div>
                   <div className="form-row">
                     <div className="form-group">
