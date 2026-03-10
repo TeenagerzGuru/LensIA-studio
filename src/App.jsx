@@ -106,17 +106,17 @@ function App() {
   ]
 
   const studioAReviews = [
-    { img: "/SAR1.jpeg" },
-    { img: "/SAR2.jpeg" },
-    { img: "/SAR3.jpeg" },
-    { img: "/SAR4.jpeg" }
+    { img: "/SAR5.jpeg", format: "landscape" },
+    { img: "/SAR6.jpeg", format: "landscape" },
+    { img: "/SAR7.jpeg", format: "portrait" },
+    { img: "/SAR8.jpeg", format: "portrait" }
   ]
 
   const studioBReviews = [
-    { img: "/SBR1.jpeg" },
-    { img: "/SBR2.jpeg" },
-    { img: "/SBR3.jpeg" },
-    { img: "/SBR4.jpeg" }
+    { img: "/SBR5.jpeg", format: "landscape" },
+    { img: "/SBR6.jpeg", format: "portrait" },
+    { img: "/SBR7.jpeg", format: "portrait" },
+    { img: "/SBR8.jpeg", format: "portrait" }
   ]
 
   const handleChange = (e) => {
@@ -304,7 +304,7 @@ function App() {
               <h3 className="category-title">Studio A - The Classic</h3>
               <div className="reviews-grid">
                 {studioAReviews.map((review, index) => (
-                  <div key={index} className="review-card image-only landscape">
+                  <div key={index} className={`review-card image-only ${review.format}`}>
                     <img src={review.img} alt={`Studio A Review ${index + 1}`} className="review-img" />
                   </div>
                 ))}
@@ -315,7 +315,7 @@ function App() {
               <h3 className="category-title">Studio B - The Nostalgic</h3>
               <div className="reviews-grid">
                 {studioBReviews.map((review, index) => (
-                  <div key={index} className="review-card image-only">
+                  <div key={index} className={`review-card image-only ${review.format}`}>
                     <img src={review.img} alt={`Studio B Review ${index + 1}`} className="review-img" />
                   </div>
                 ))}
