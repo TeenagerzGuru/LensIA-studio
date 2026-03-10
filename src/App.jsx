@@ -114,7 +114,7 @@ function App() {
 
   const studioBReviews = [
     { img: "/SBR5.jpeg", format: "landscape" },
-    { img: "/SBR6.jpeg", format: "portrait" },
+    { img: "/SBR6.jpeg", format: "landscape" },
     { img: "/SBR7.jpeg", format: "portrait" },
     { img: "/SBR8.jpeg", format: "portrait" }
   ]
