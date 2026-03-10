@@ -619,6 +619,10 @@ textarea:focus {
   aspect-ratio: 3 / 2;
 }
 
+.review-card.portrait {
+  aspect-ratio: 4 / 5;
+}
+
 .review-card:hover {
   transform: translateY(-5px);
   border-color: var(--primary);
